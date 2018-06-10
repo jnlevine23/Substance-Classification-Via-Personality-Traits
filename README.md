@@ -7,4 +7,4 @@ Accompanying Flask App was built with python, HTML, CSS and jQuery. User may spe
 
 _Full presentation and results can be found [here](https://github.com/jnlevine23/Substance_Classification_Via_Personality_Traits/blob/master/presentation.pdf)._
 
-If notebook is unable to load, view at [nbviewer](https://github.com/jnlevine23/Substance_Classification_Via_Personality_Traits/blob/master/data_analysis_modeling.ipynb).
+If notebook is unable to load, view at [nbviewer](https://nbviewer.jupyter.org/github/jnlevine23/Substance_Classification_Via_Personality_Traits/blob/master/data_analysis_modeling.ipynb).
