@@ -11,7 +11,7 @@ import pandas as pd
 app = flask.Flask(__name__)
 
 #Random Forest Marijuana Model 
-with open("rf_weed.pkl", "rb") as f:
+with open("./pickle_files/rf_weed.pkl", "rb") as f:
     rf_weed_pickle = pickle.load(f)
 
 # If you go to the page "/" (this means a GET request
@@ -38,10 +38,11 @@ def predict():
 
     pred_probs = rf_weed_pickle.predict_proba([x_input]).flat
 
+    #Display class with higher probability first
     pred_str = ""
     for class_i in np.argsort(pred_probs)[::-1]:
-        pred_str += f"""{rf_weed_pickle.target_names[class_i]}: {pred_probs[class_i]:g}<br>
-        """
+        pred_str += f"""{rf_weed_pickle.target_names[class_i]}: \
+        {str(np.round(pred_probs[class_i]*100, 2))+"%"}<br>"""
 
 
     personality_names = ['Neuroticism', 'Extraversion', 'Openness', 
@@ -61,7 +62,7 @@ def predict():
 
 
 #Linear SVM Nicotine Pickle
-with open("lin_svm_nic.pkl", "rb") as f:
+with open("./pickle_files/lin_svm_nic.pkl", "rb") as f:
     lin_svm_nic_pickle = pickle.load(f)
 
 #Nicotine Predictor App
@@ -81,8 +82,8 @@ def nicotine():
 
     pred_str = ""
     for class_i in np.argsort(pred_probs_nic)[::-1]:
-        pred_str += f"""{lin_svm_nic_pickle.target_names[class_i]}: {pred_probs_nic[class_i]:g}
-        <br>"""
+        pred_str += f"""{lin_svm_nic_pickle.target_names[class_i]}: \
+        {str(np.round(pred_probs_nic[class_i]*100, 2))+"%"}<br>"""
 
     personality_names = ['Neuroticism', 'Extraversion', 'Openness', 
                      'Agreeableness', 'Conscientiousness', 'Impulsiveness',
@@ -100,7 +101,7 @@ def nicotine():
     )
 
 #pickle model - Linear SVM Cocaine
-with open("lin_svm_coke.pkl", "rb") as f:
+with open("./pickle_files/lin_svm_coke.pkl", "rb") as f:
     lin_svm_coke = pickle.load(f)
 
 #Cocaine Predictor App
@@ -120,8 +121,8 @@ def cocaine():
 
     pred_str = ""
     for class_i in np.argsort(pred_probs_coke)[::-1]:
-        pred_str += f"""{lin_svm_coke.target_names[class_i]}: {pred_probs_coke[class_i]:g}
-        <br>"""
+        pred_str += f"""{lin_svm_coke.target_names[class_i]}: \
+        {str(np.round(pred_probs_coke[class_i]*100, 2))+"%"}<br>"""
 
     personality_names = ['Neuroticism', 'Extraversion', 'Openness', 
                      'Agreeableness', 'Conscientiousness', 'Impulsiveness',

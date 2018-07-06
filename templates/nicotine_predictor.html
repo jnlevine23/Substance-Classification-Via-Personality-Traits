@@ -132,6 +132,12 @@ input::-moz-focus-outer {
   margin-bottom: 40px;
 }
 
+.drugs {
+  border-radius: 20px;
+  height: 3em;
+  width: 7em;
+}
+
 .results_header {
   margin-bottom: 1px;
 }
@@ -147,7 +153,7 @@ input::-moz-focus-outer {
 </style>
 
 <body>
-  <h2>Probability of Nicotine Use</h2>
+  <h2>Risk of Nicotine Use</h2>
 
 
   <body bgcolor="#cbb076">
@@ -190,6 +196,20 @@ input::-moz-focus-outer {
   </div>
 <br>
 <br>
+
+<!-- To Cocaine Template -->
+<form method="POST">
+  <button class="drugs" type="button" onclick=window.location.href="{{ url_for('cocaine') }}">Cocaine Predictor</button>
+
+</form>
+
+<br>
+
+<!-- Back to HomePage -->
+<form method="POST">
+  <button class="drugs" type="button" onclick=window.location.href="{{ url_for('predict') }}">Back to Home</button>
+
+</form>
 
 <script type="text/javascript">
 
