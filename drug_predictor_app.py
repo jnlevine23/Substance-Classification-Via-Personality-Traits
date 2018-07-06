@@ -138,10 +138,7 @@ def cocaine():
     x_input=output_df.to_html(classes='scores'),
     prediction=pred_str
     )
-    
-# Start the server, continuously listen to requests.
-# For local development:
-#app.run(debug=True)
 
 # For public web serving:
-app.run(host='0.0.0.0', debug=True)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
